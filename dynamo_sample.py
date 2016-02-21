@@ -1,3 +1,4 @@
+import decimal
 import json
 
 from boto3.session import Session
@@ -17,6 +18,12 @@ event = {
     'payload': {'Key': {'id': 1}}
 }
 
+def decimal_default(obj):
+    if isinstance(obj, decimal.Decimal):
+        return int(obj)
+    raise TypeError
+
+
 print('Received event: ' + json.dumps(event, indent=2))
 
 operation = event['operation']
@@ -35,7 +42,9 @@ operations = {
 }
 
 if operation in operations:
-    print(operations[operation](event.get('payload')))
+    response = operations[operation](event.get('payload'))
+    print('Response data: ' + json.dumps(response,
+                                         indent=2, default=decimal_default))
 
 else:
     raise ValueError('Unrecognized operation "{}"'.format(
