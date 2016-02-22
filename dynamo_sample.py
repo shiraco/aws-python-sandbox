@@ -13,8 +13,8 @@ session = Session(profile_name=profile)
 #                   region_name='<REGION NAME>')
 
 event_echo = {
-  "operation": "echo",
-  "payload": "Hello world!"
+    'operation': 'echo',
+    'payload': 'Hello world!'
 }
 
 event_list = {
