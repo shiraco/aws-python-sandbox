@@ -12,11 +12,50 @@ session = Session(profile_name=profile)
 #                   aws_secret_access_key='<YOUR SECRET KEY>',
 #                   region_name='<REGION NAME>')
 
-event = {
+event_list = {
+    'operation': 'list',
+    'tableName': 'hello-lambda-dynamodb',
+    'payload': {'TableName': 'hello-lambda-dynamodb'}
+}
+
+event_read = {
     'operation': 'read',
     'tableName': 'hello-lambda-dynamodb',
-    'payload': {'Key': {'id': 1}}
+    'payload': {'Key':
+                {'id': 1}
+                }
 }
+
+event_create = {
+    'operation': 'create',
+    'tableName': 'hello-lambda-dynamodb',
+    'payload': {'Item':
+                {'id': 3,
+                 'first_name': 'hiroshi',
+                 'last_name': 'nekoyama',
+                 'score': 90}
+                }
+}
+
+event_update = {
+    'operation': 'update',
+    'tableName': 'hello-lambda-dynamodb',
+    'payload': {'Key':
+                {'id': 3},
+                'UpdateExpression': 'SET score = :val',
+                'ExpressionAttributeValues':
+                    {':val': 26}
+                }
+}
+
+event_delete = {
+    'operation': 'delete',
+    'tableName': 'hello-lambda-dynamodb',
+    'payload': {'Key': {'id': 3}}
+}
+
+event = event_update
+
 
 def decimal_default(obj):
     if isinstance(obj, decimal.Decimal):
