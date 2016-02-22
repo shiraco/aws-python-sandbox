@@ -12,6 +12,11 @@ session = Session(profile_name=profile)
 #                   aws_secret_access_key='<YOUR SECRET KEY>',
 #                   region_name='<REGION NAME>')
 
+event_echo = {
+  "operation": "echo",
+  "payload": "Hello world!"
+}
+
 event_list = {
     'operation': 'list',
     'tableName': 'hello-lambda-dynamodb',
