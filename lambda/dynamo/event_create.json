@@ -1,0 +1,12 @@
+{
+  "operation": "create",
+  "tableName": "hello-lambda-dynamodb",
+  "payload": {
+    "Item": {
+      "id": 3,
+      "first_name": "hiroshi",
+      "last_name": "nekoyama",
+      "score": 90
+    }
+  }
+}

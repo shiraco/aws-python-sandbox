@@ -1,0 +1,7 @@
+{
+  "operation": "list",
+  "tableName": "hello-lambda-dynamodb",
+  "payload": {
+    "TableName": "hello-lambda-dynamodb"
+  }
+}

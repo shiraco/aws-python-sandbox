@@ -1,0 +1,9 @@
+{
+  "operation": "delete",
+  "tableName": "hello-lambda-dynamodb",
+  "payload": {
+    "Key": {
+      "id": 3
+    }
+  }
+}

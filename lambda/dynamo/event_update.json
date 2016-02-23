@@ -1,0 +1,13 @@
+{
+  "operation": "update",
+  "tableName": "hello-lambda-dynamodb",
+  "payload": {
+    "Key": {
+      "id": 3
+    },
+    "UpdateExpression": "SET score = :val",
+    "ExpressionAttributeValues": {
+      ":val": 26
+    }
+  }
+}

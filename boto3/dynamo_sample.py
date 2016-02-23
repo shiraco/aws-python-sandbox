@@ -2,6 +2,8 @@ import decimal
 import json
 
 from boto3.session import Session
+from boto3.session import Session
+import boto3
 
 # profile = '<YOUR_PROFILE_NAME>'
 profile = 'shiraco'
@@ -73,7 +75,8 @@ print('Received event: ' + json.dumps(event, indent=2))
 operation = event['operation']
 
 if 'tableName' in event:
-    dynamo = session.resource('dynamodb').Table(event['tableName'])
+    # dynamo = session.resource('dynamodb').Table(event['tableName'])
+    dynamo = boto3.resource('dynamodb').Table(event['tableName'])
 
 operations = {
     'create': lambda x: dynamo.put_item(**x),
